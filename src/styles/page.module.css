@@ -1,0 +1,203 @@
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Keyframes for sliding in from the right */
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOutAndDrop {
+    0% {
+        transform: translateY(0); /* Start position */
+        opacity: 1; /* Start opacity */
+        background-color: initial; /* Keep the initial color */
+    }
+    100% {
+        transform: translateY(100px); /* Adjust to your preference */
+        opacity: 0; /* End opacity */
+        background-color: red; /* Ensure final color is red */
+    }
+}
+
+/* Apply the animation to the option boxes */
+.optionBox {
+    animation-duration: 0.5s; /* Duration of the animation */
+    animation-fill-mode: forwards; /* Ensure the element stays in the final state */
+}
+
+.optionBoxLeft {
+    animation-name: slideInFromLeft;
+}
+
+.optionBoxRight {
+    animation-name: slideInFromRight;
+}
+
+/* CSS for animating the boxes when the player times out */
+.optionBoxTimeout {
+    animation: fadeOutAndDrop 1s forwards; /* Animation name, duration, and forwards to keep the final state */
+    background-color: red; /* Change color to red */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f7f8fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.timerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.icon {
+    width: 20vw;
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.progressBarContainer {
+    width: 60vw;
+    max-width: 300px;
+    height: 15px;
+    background-color: #e0e0e0;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progressBar {
+    height: 100%;
+    background-color: #a0d8f0;
+    transition: width 1s linear;
+}
+
+.questionSection {
+    text-align: center;
+}
+
+.questionPremise {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.optionsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px; /* Add spacing between options and 'or' text */
+    flex-direction: row;
+}
+
+.optionBox {
+    flex: 1 1 40%;
+    max-width: 180px;
+    min-width: 120px;
+    height: auto;
+    aspect-ratio: 1;
+    background-color: #ffdee9;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vw;
+    max-font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.orText {
+    font-size: 2rem;
+    color: #777;
+    font-weight: bold;
+}
+
+.gameOver {
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+    font-weight: bolder;
+}
+
+.restartButton {
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.restartButton:hover {
+    background-color: #005bb5;
+}
+
+.container {
+    position: relative;
+    /* Your existing styles */
+}
+
+.livesSection {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px; /* Space between hearts */
+}
+
+.heartIcon {
+    width: 48px; /* Adjust size as needed */
+    height: auto;
+}
+
+.startOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure it's on top */
+    cursor: pointer;
+}
+
+.startText {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
